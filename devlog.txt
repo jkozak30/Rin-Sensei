@@ -47,4 +47,12 @@ tales of wisdom gained...
 2022-5-25
 --------------------------------------------------------------
 All :: Started writing the proposal.
+Julia :: Wrote maze generation class, added maze to Processing canvas.
 ==============================================================
+
+2022-5-26
+--------------------------------------------------------------
+Julia :: Added player, maze navigation, corner map, and player controls. 
+All :: 
+
+=============================================================
