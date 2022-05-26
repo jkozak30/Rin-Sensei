@@ -46,8 +46,9 @@ tales of wisdom gained...
 
 2022-5-25
 --------------------------------------------------------------
-All :: Started writing the proposal.
+All :: Started writing the proposal, drafted ideas.
 Julia :: Wrote maze generation class, added maze to Processing canvas.
+Rin :: Added devlog.
 ==============================================================
 
 2022-5-26
