@@ -2,7 +2,7 @@ Maze m;
 Player p;
 
 void setup() {
-  size(300, 300);
+  size(400, 400);
   m = new Maze(6, 6);
   p = new Player(m.grid);
   m.mazeify();

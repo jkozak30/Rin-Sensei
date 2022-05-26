@@ -10,10 +10,11 @@ class Maze {
     grid = new Square[rows][cols];
     for (int r=0; r<rows; r++) {
       for (int c=0; c<cols; c++) {
-        Square temp = new Square(r, c);
+        Square temp = new Square(r, c, 0);
         grid[r][c] = temp;
       }
     }
+    grid[0][0].ROOM_ID = 1;
     current = grid[0][0]; //it dont matter which one
     stack = new Stack<Square>();
     numVisited = 0;
@@ -24,7 +25,7 @@ class Maze {
     strokeWeight(1);
     for(int r=0; r<grid.length; r++) {
       for (int c=0; c<grid[0].length; c++) {
-        grid[r][c].draw(p);
+        grid[r][c].cDraw(p);
       }
     }
   }

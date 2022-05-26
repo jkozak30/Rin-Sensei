@@ -13,7 +13,7 @@ class Player {
     c = 0;
     this.grid = grid;
     pos = grid[0][0];
-    x = y = 150;
+    x = y = width/2;
     dx = dy = 0;
   }
   
@@ -35,6 +35,7 @@ class Player {
     if (pos.walls[1]) {line(width-1, 1, width-1, height-1);}
     if (pos.walls[2]) {line(width-1, height-1, 1, height-1);}
     if (pos.walls[3]) {line(1, height-1, 1, 1);}
+    pos.draw();
     noStroke();
     fill(30, 30, 100);
     ellipse(x, y, 10, 10);

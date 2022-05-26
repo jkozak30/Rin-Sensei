@@ -3,11 +3,13 @@ class Square {
   //Square[] neighbors;
   boolean isVisited;
   boolean[] walls = { true, true, true, true }; //cw from top
+  int ROOM_ID;
 
-  public Square(int r, int c) {
+  public Square(int r, int c, int ID) {
     this.r = r;
     this.c = c;
     isVisited = false;
+    ROOM_ID = ID;
   }
 
   // returns random neighbor of this sq if one exists
@@ -25,10 +27,11 @@ class Square {
       return neighbors.get(rand);
     }
   }
-    
-  void draw(Player player) {
+  
+  // ~~~~~~ CORNER DRAW ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  void cDraw(Player player) {
     int wid = 6;
-    int xOffset = 263;
+    int xOffset = width-wid*6-1;
     int yOffset = 0;
     int x = c*wid + xOffset;
     int y = r*wid + yOffset;
@@ -48,6 +51,19 @@ class Square {
     }
     if (walls[3]) {
       line(x, y+wid, x, y);
+    }
+  }
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  
+  void draw() {
+    if (ROOM_ID == 0) {
+      fill(123, 45, 67);
+      ellipse(20, 20, 20, 20);
+    }
+    if (ROOM_ID == 1) {
+      fill(76, 54, 213);
+      ellipse(40, 40, 40, 40);
     }
   }
 
