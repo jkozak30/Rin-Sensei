@@ -16,7 +16,8 @@ class Maze {
         Square temp; 
         if (r==0 && c==1) {temp = new HealingRoom(r, c);} //randomize later
         else if (r==1 && c==1) {temp = new BHRoom(r, c);} //randomize later
-        else if (r==rows-1 && c==cols-1) {temp = new EndRoom(r, c); print("made");} //right corner square
+        else if (r==rows-1 && c==cols-1) {temp = new EndRoom(r, c); /*print("made");*/} //right corner square
+        else if (r==2 && c==2) {temp = new ShopRoom(r, c);}
         else {temp = new Square(r, c);}
         
         grid[r][c] = temp;

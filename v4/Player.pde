@@ -11,8 +11,7 @@ class Player {
   int t;
   
   
-  public Player(Square[][] grid, Weapon w){
-    weapon = w;
+  public Player(Square[][] grid){
     health = 100;
     attack = 100; 
     r = 0;
@@ -44,7 +43,7 @@ class Player {
     }
     else {
       status(); 
-      weapon.draw(this);
+      weapon.draw();
       stroke(255);
       strokeWeight(5);
       if (pos.walls[0]) {line(1, 1, width-1, 1);}
