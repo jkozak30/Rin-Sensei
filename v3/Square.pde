@@ -4,14 +4,16 @@ class Square {
   boolean isVisited;
   boolean[] walls = { true, true, true, true }; //cw from top
   int ROOM_ID;
-  boolean isCompleted;
+  HealingRoom hl; 
+  BHRoom bh; 
 
   public Square(int r, int c, int ID) {
     this.r = r;
     this.c = c;
     isVisited = false;
     ROOM_ID = ID;
-    isCompleted = false;
+    hl = new HealingRoom(); 
+    bh = new BHRoom();
   }
 
   // returns random neighbor of this sq if one exists
@@ -59,20 +61,26 @@ class Square {
   
   
   void draw() {
-    if (ROOM_ID == 0) {
-      fill(123, 45, 67);
-      ellipse(20, 20, 20, 20);
+    if (ROOM_ID == 0) { //starting room
+      /*fill(123, 45, 67);
+      ellipse(20, 20, 20, 20);*/
+       
     }
     if (ROOM_ID == 1) {
-      fill(76, 54, 213);
-      ellipse(40, 40, 40, 40);
+      /*fill(76, 54, 213);
+      ellipse(40, 40, 40, 40);*/
+      
     }
-  }
-  
-  void complete() {
-    if (ROOM_ID == 1) {
-      if (mouseX > 250) {isCompleted = true;}
+    if (ROOM_ID == 2) { //healing room 
+      if (!hl.earned) {hl.increaseHealth();}
+      hl.draw();
     }
+    
+    if (ROOM_ID == 3) { //bh room 
+      bh.draw();
+    }
+    
+    
   }
 
 }
