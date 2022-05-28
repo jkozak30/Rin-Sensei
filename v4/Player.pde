@@ -7,7 +7,7 @@ class Player {
   Square[][] grid;
   int x, y, dx, dy;
   Weapon weapon;
-  int cooldown = 60;
+  int cooldown = 30;
   int t;
   
   
