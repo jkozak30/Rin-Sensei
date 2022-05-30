@@ -4,7 +4,7 @@ class Maze {
   Square[][] grid;
   Square current;
   Stack<Square> stack;
-  int numVisited;
+  //int numVisited;
   //int id; 
   
   
@@ -26,7 +26,7 @@ class Maze {
     //grid[0][0].ROOM_ID = 1;
     current = grid[0][0]; //it dont matter which one
     stack = new Stack<Square>();
-    numVisited = 0;
+    //numVisited = 0;
   }
   
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
