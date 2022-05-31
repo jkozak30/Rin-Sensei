@@ -53,7 +53,33 @@ Rin :: Added devlog.
 
 2022-5-26
 --------------------------------------------------------------
-Julia :: Added player, maze navigation, corner map, and player controls. 
-All :: 
+Julia :: Added player, maze navigation, corner map, and player controls.
+...
+All :: Added elements to the proposal and drafted corresponding classes.
+
+=============================================================
+
+2022-5-27
+--------------------------------------------------------------
+Julia :: Improved movement design, created requirements to leave each room.
+...
+All ::
+
+=============================================================
+
+2022-5-28 ... 30
+--------------------------------------------------------------
+Julia :: Wrote weapon class, added shop room/switch weapon functionality, and
+dash movement.
+...
+All ::
+
+=============================================================
+
+2022-5-31
+--------------------------------------------------------------
+Julia :: Fixed damage bug in bullet hell room, added HP.
+...
+All ::
 
 =============================================================
