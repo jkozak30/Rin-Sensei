@@ -82,7 +82,7 @@ public class DC {
   }
 
   public static void main(String[] args) {
-    DC siu = new DC(20, 10);
+    DC siu = new DC(10, 10);
     System.out.println(siu.mazeString());
     siu.mazeify();
     System.out.println(siu.mazeString());

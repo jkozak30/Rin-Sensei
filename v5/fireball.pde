@@ -3,6 +3,7 @@ class fireball{
   PImage[] fireballgif; 
   float x, y, dx, dy;
   float currentFrame;
+  int t1;
   
   public fireball(){
     fireballgif = new PImage[5];
@@ -62,9 +63,11 @@ class fireball{
   }
   
   void damage() {
-   if (abs(p.x - x) <= 10 && abs(p.y - y) <= 10) {
-      p.health -= 1;
+   if (t1 >= 10 && abs(p.x - x) <= 15 && abs(p.y - y) <= 15) {
+      p.health -= 10;
+      t1 = 0;
     }
+    t1++;
   }
   
 }//end of class

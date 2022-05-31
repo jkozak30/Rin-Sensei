@@ -9,6 +9,7 @@ class BHRoom extends Square{
     currentFrame = 0;
     t=0; 
     projectiles = new fireball[60];
+    isCompleted = false;
   }
   
   void draw(){
@@ -23,7 +24,7 @@ class BHRoom extends Square{
         projectiles[i].update();
       }
       t++;
-    }
+    } else { isCompleted = true;}
   }
   
 }

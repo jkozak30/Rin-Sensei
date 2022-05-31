@@ -9,6 +9,7 @@ class Player {
   Weapon weapon;
   int cooldown = 30;
   int t;
+  boolean attacked; 
   
   
   public Player(Square[][] grid){
@@ -24,7 +25,7 @@ class Player {
   }
   
   boolean moveSq(int kp) {
-    if (!pos.walls[kp]) {
+    if (!pos.walls[kp] && pos.isCompleted) {
       if (kp == 0) r -= 1; pos = grid[r][c];
       if (kp == 1) c += 1; pos = grid[r][c];
       if (kp == 2) r += 1; pos = grid[r][c];

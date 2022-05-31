@@ -4,11 +4,13 @@ class Square {
   boolean isVisited;
   boolean[] walls = { true, true, true, true }; //cw from top
   //int ROOM_ID;
+  boolean isCompleted;
 
   public Square(int r, int c) {
     this.r = r;
     this.c = c;
     isVisited = false;
+    isCompleted = true;
   }
 
   // returns random neighbor of this sq if one exists
