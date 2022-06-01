@@ -3,9 +3,9 @@ class Monster {
   int health;
   int attack;
   int x, y, dx, dy;
+  Square pos;
+  boolean wasAttacked;
   
   
-  public Monster() {
-    
-  }
+  public Monster() {}
 }
