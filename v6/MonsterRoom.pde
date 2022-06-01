@@ -1,5 +1,6 @@
 class MonsterRoom extends Square {
   Monster[] monsters;
+  int t = 0;
   
   public MonsterRoom(int r, int c) {
     super(r, c);
@@ -8,8 +9,15 @@ class MonsterRoom extends Square {
     this.hps = null;
   }
   
+  void spawn() {
+    for (int i=0; i<monsters.length; i++) {
+      monsters[i] = new Monster((int)random(width-20)+10, (int)random(width-20)+10);
+    }
+  }
+  
   void draw() {
-    
+    if (p.pos.r == this.r && p.pos.c == this.c) {}
+    for (int i=0; i<monsters.length; i++) {monsters[i].draw(); monsters[i].move();}
     super.draw();
   }
 }
