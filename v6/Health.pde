@@ -28,7 +28,11 @@ class Health {
   
   void keyPressed() {
     if (selected && !received) {
-      if (key == ' ') {p.health += amt; this.received = true;}
+      if (key == ' ') {
+        p.health += amt;
+        p.health = min(p.health, 100);
+        this.received = true;
+      }
     }
   }
   

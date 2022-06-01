@@ -1,0 +1,2 @@
+class Bat extends Monster {
+}

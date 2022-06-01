@@ -1,6 +1,5 @@
 class Player {
   int health;
-  int coins;
   int attack;
   int r, c;
   Square pos;
@@ -89,15 +88,20 @@ class Player {
     else if (health < 1000) { text("HEALTH: " + "0" + health, 272, 18); 
     } else { text("HEALTH: " + health, 272, 18); }
     
+    fill(255, 0, 0);
+    noStroke();
+    rect(10, 10, health, 10);
+    noFill();
+    stroke(255);
+    strokeWeight(1);
+    rect(10, 10, 100, 10);
+    
+    
+    
     if (attack < 10) { text("ATTACK: " + "000" + attack, 272, 34); } 
     else if (attack < 100) { text("ATTACK: " + "00" + attack, 272, 34); } 
     else if (attack < 1000) { text("ATTACK: " + "0" + attack, 272, 34); } 
     else { text("ATTACK: " + attack, 272, 34); }
-    
-    if (coins < 10) { text("COINS:    " + "000" + coins, 272, 50); } 
-    else if (coins < 100) { text("COINS:    " + "00" + coins, 272, 50); } 
-    else if (coins < 1000) { text("COINS:    " + "0" + coins, 272, 50); } 
-    else { text("COINS:    " + coins, 272, 50); }
   }    
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   

@@ -1,0 +1,3 @@
+class Eye extends Monster {
+  
+}
