@@ -44,9 +44,9 @@ void mousePressed() {
 void keyPressed() {
   if (key == ENTER) {start = true;}
   if (key == 'w' || keyCode == UP) { p.dy = -3; /*p.y-=5;*/ }
-  if (key == 'd' || keyCode == RIGHT) { p.dx = 3; }
+  if (key == 'd' || keyCode == RIGHT) { p.dx = 3; p.right = true;}
   if (key == 's' || keyCode == DOWN) { p.dy = 3; }
-  if (key == 'a' || keyCode == LEFT) { p.dx = -3; }
+  if (key == 'a' || keyCode == LEFT) { p.dx = -3; p.right = false;}
   if (key == ' ' && p.t > p.cooldown ) { p.t = 0; }
   //((ShopRoom)m.grid[2][2]).keyPressed(); this was dumb.
 }

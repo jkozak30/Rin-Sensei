@@ -9,6 +9,7 @@ class Player {
   int cooldown = 30;
   int t;
   boolean attacked; 
+  boolean right;
   
   
   public Player(Square[][] grid){
@@ -50,10 +51,14 @@ class Player {
       if (pos.walls[1]) {line(width-1, 1, width-1, height-1);}
       if (pos.walls[2]) {line(width-1, height-1, 1, height-1);}
       if (pos.walls[3]) {line(1, height-1, 1, 1);}
-      pos.draw();
+      pos.draw( );
       noStroke();
       fill(30, 30, 100);
-      ellipse(x, y, 10, 10);
+      /*if (!right){
+        
+      }
+      */
+      ellipse(x, y, 30, 30);
       t++;
     }
   }
@@ -104,6 +109,8 @@ class Player {
     else { text("ATTACK: " + attack, 272, 34); }
   }    
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  
   
   void dash() {
     if (t == 0) {dx *= 3; dy *= 3;}

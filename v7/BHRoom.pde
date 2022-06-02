@@ -14,8 +14,8 @@ class BHRoom extends Square{
   
   void draw(){
     //background(0);
-    int x = 30;
-    if (t < 1800){
+    int x = 20;
+    if (t < 600){
       if (t%x == 0) {
         projectiles[t/x] = new fireball();
       }

@@ -40,8 +40,8 @@ class Maze {
       int rr = int(random(rows));
       int cc = int(random(rows));
       if ( !(rr==0 && cc==0) && !(rr==rows-1 && cc==cols-1) && grid[rr][cc].emptyRoom ) {
-        //print(rr + " " + cc + "   ");
-        grid[rr][cc] = new BHRoom(rr, cc);
+        print(rr + " " + cc + "   ");
+        grid[rr][cc] = new HealingRoom(rr, cc);
         grid[rr][cc].emptyRoom = false; 
         healNum++;
       }
