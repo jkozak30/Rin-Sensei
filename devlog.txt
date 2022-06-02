@@ -62,24 +62,34 @@ All :: Added elements to the proposal and drafted corresponding classes.
 2022-5-27
 --------------------------------------------------------------
 Julia :: Improved movement design, created requirements to leave each room.
-...
-All ::
+John :: Created bullet hell, designed graphics
+Rin :: Incorporated HealingRoom and BHRoom into the maze
 
 =============================================================
 
 2022-5-28 ... 30
 --------------------------------------------------------------
 Julia :: Wrote weapon class, added shop room/switch weapon functionality, and
-dash movement.
-...
-All ::
+dash movement, started UML
+John :: Created bullet hell, designed graphics like weapons, background,
+character
+Rin :: Created subclasses of the Square class, created health and damage,
+finished UML
+
 
 =============================================================
 
 2022-5-31
 --------------------------------------------------------------
 Julia :: Fixed damage bug in bullet hell room, added HP.
-...
-All ::
 
+
+=============================================================
+
+2022-6-01
+--------------------------------------------------------------
+Julia :: Created monster class, monsters class, and their functionalities(attack,
+movement) 
+John :: Created more graphics
+Rin :: Randomized rooms, created a starting screen, adjusted graphics
 =============================================================
