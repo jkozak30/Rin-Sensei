@@ -16,7 +16,7 @@ class MonsterRoom extends Square {
   }
   
   void draw() {
-    if (p.pos.r == this.r && p.pos.c == this.c) {}
+    if (t == 0 && p.pos.r == this.r && p.pos.c == this.c) {spawn(); t = 1; }
     for (int i=0; i<monsters.length; i++) {monsters[i].draw(); monsters[i].move();}
     super.draw();
   }

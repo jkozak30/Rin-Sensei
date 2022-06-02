@@ -64,7 +64,7 @@ class Square {
   
   
   void draw() {
-    if (t ==0) {
+    if (hps != null && t ==0) {
       for (int i=0; i<4; i++) {
       float chance = random(1);
       if (chance > 0.5) {

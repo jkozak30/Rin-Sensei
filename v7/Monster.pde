@@ -5,25 +5,39 @@ class Monster {
   int x, y, dx, dy;
   Square pos;
   boolean wasAttacked;
+  int t = 0;
   
   public Monster(){}
   
   public Monster(int x, int y) {
     this.x = x; 
     this.y = y;
-    img = loadImage("");
+    this.attack = 2;
+    img = loadImage("weapon.png");
   }
   
   void draw() {
     image(img, x, y);
+    x += dx;
+    y += dy;
   }
+  
+  
   void move() {
-    if (p.x < this.x) {dx = -1;}
-    else if (p.x > this.x) {dx = 1;}
-    else { dx = 0; }
-    if (p.y < this.y) {dx = -1;}
-    else if (p.y > this.y) {dy = 1;}
-    else {dy = 0;}
-    
+    if (this.x < p.x) {dx = 1;}
+    else {dx = -1;}
+  
+    if (this.y < p.y) {dy = 1;}
+    else {dy = -1;}
+    damage();
   }
+
+  void damage() {
+   if (t >= 10 && abs(p.x - x) <= 15 && abs(p.y - y) <= 15) {
+      p.health -= attack;
+      t = 0;
+    }
+    t++;
+  }
+
 }

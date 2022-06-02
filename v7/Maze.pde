@@ -46,6 +46,7 @@ class Maze {
         healNum++;
       }
     }
+    grid[0][0] = new MonsterRoom(0, 0);
           
     //grid[0][0].ROOM_ID = 1;
     current = grid[0][0]; //it dont matter which one
