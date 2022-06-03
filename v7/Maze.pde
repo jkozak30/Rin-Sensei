@@ -40,13 +40,15 @@ class Maze {
       int rr = int(random(rows));
       int cc = int(random(rows));
       if ( !(rr==0 && cc==0) && !(rr==rows-1 && cc==cols-1) && grid[rr][cc].emptyRoom ) {
-        print(rr + " " + cc + "   ");
+        //print(rr + " " + cc + "   ");
         grid[rr][cc] = new HealingRoom(rr, cc);
         grid[rr][cc].emptyRoom = false; 
         healNum++;
       }
     }
+    //testing
     grid[0][0] = new MonsterRoom(0, 0);
+    grid[0][1] = new HealingRoom(0, 1);
           
     //grid[0][0].ROOM_ID = 1;
     current = grid[0][0]; //it dont matter which one

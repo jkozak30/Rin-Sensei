@@ -13,7 +13,7 @@ class HealingRoom extends Square{
   }
   
   void draw() {
-    if (t == 0) {h = new Health(this, width/2, height/2, max(0, 100-p.health));}
+    if (t == 0) {h = new Health(this, width/2, height/2, max(0, 100-p.health), true);}
     //fill(255);
     //text("health +10 (temp)", 200, 200);
     //if (!isCompleted) {increaseHealth();}

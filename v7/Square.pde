@@ -68,7 +68,7 @@ class Square {
       for (int i=0; i<4; i++) {
       float chance = random(1);
       if (chance > 0.5) {
-        hps[i] = new Health(this, (int)random(width-20)+10, (int)random(width-20)+10, 1);
+        hps[i] = new Health(this, (int)random(width-20)+10, (int)random(width-20)+10, 1, false);
       }
     }
     } else {
