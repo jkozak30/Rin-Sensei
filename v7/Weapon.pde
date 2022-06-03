@@ -1,4 +1,5 @@
 class Weapon {
+  int type;
   int attack;
   PImage img;
   int xOff;

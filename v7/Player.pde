@@ -10,6 +10,7 @@ class Player {
   int t;
   boolean attacked; 
   boolean right;
+  boolean isAttacking;
   
   
   public Player(Square[][] grid){
@@ -116,6 +117,28 @@ class Player {
     if (t == 0) {dx *= 3; dy *= 3;}
     if (t == 5) {dx /= 3; dy /= 3;}
     
+  }
+  
+  void attack() {
+    if (weapon.type == 0){
+      if (right){
+        MeleeAttack hitbox = new MeleeAttack(x+10, x+70, y+20, y-20);
+      }
+      else{
+        MeleeAttack hitbox = new MeleeAttack(x-70, x-10, y+20, y-20);
+      }
+    }
+    if (weapon.type == 1){
+      if (right){
+        MeleeAttack hitbox = new MeleeAttack(x+10, x+80, y+20, y-20);
+      }
+      else{
+        MeleeAttack hitbox = new MeleeAttack(x-80, x-10, y+20, y-20);
+      }
+    }
+    if (weapon.type == 2){
+      
+    }
   }
   
 }
