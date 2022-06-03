@@ -25,7 +25,9 @@ void draw() {
     text("WELCOME TO (title)", 200, 180);
     text("Use WASD or arrow keys to move", 200, 220);
     text("Press space to dash", 200, 250);
-    text("PRESS ENTER TO START", 200, 280);
+    text("Press u to attack", 200, 280);
+    text("PRESS ENTER TO START", 200, 330);
+    
     textAlign(CENTER);
     
   }
