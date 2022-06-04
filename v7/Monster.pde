@@ -35,8 +35,8 @@ class Monster {
     if (this.y < p.y) {dy = 1;}
     else {dy = -1;}
     damage();
-    //takeDamage();
-    this.keyPressed();
+    takeDamage();
+    //this.keyPressed();
   }
 
   void damage() {
@@ -48,8 +48,10 @@ class Monster {
   }
   
   void takeDamage() {
-    if (!dead && abs(this.x - p.x) <= 10 && abs(p.y - this.y) <= 10) { t1 = 0; this.health -= p.attack;}
-    t1++;
+    if (p.weapon.type == 0){
+      if (p.hitbox != null && !dead && p.hitbox.xFront < x && x < p.hitbox.xBack && p.hitbox.yTop < this.y && this.y < p.hitbox.yBottom) { t1 = 0; this.health -= p.attack;}
+        t1++;
+    }
   }
   
   void keyPressed() {

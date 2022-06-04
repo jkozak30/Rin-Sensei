@@ -15,4 +15,5 @@ class MeleeAttack{
   
   void draw(){
     t++;
+  }
 }

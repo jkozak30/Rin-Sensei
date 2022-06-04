@@ -8,9 +8,12 @@ class Player {
   Weapon weapon;
   int cooldown = 30;
   int t;
+  int attackTimer = 0;
   boolean attacked; 
   boolean right;
   boolean isAttacking;
+  MeleeAttack hitbox;
+  RangedAttack[] projectiles;
   
   
   public Player(Square[][] grid){
@@ -23,6 +26,8 @@ class Player {
     x = y = width/2;
     dx = dy = 0;
     t = 60;
+    right = true;
+    hitbox = null;
   }
   
   boolean moveSq(int kp) {
@@ -44,6 +49,24 @@ class Player {
       textAlign(CENTER);
     }
     else {
+      //draw the guy
+      if (isAttacking){
+        if (weapon.type == 0){
+          if (attackTimer > 13){
+            isAttacking = false;
+            attackTimer = 0;
+            hitbox = null;
+          }
+        }
+        if (weapon.type == 1){
+          if (attackTimer > 15){
+            isAttacking = false;
+            attackTimer = 0;
+            hitbox = null;
+          }
+        }
+        attackTimer++;
+      }
       status(); 
       weapon.draw();
       stroke(255);
@@ -120,25 +143,26 @@ class Player {
   }
   
   void attack() {
+    isAttacking = true;
     if (weapon.type == 0){
       if (right){
-        MeleeAttack hitbox = new MeleeAttack(x+10, x+70, y+20, y-20);
+        hitbox = new MeleeAttack(x+10, x+70, y-20, y+20);
       }
       else{
-        MeleeAttack hitbox = new MeleeAttack(x-70, x-10, y+20, y-20);
+        hitbox = new MeleeAttack(x-70, x-10, y-20, y+20);
       }
     }
     if (weapon.type == 1){
       if (right){
-        MeleeAttack hitbox = new MeleeAttack(x+10, x+80, y+20, y-20);
+        hitbox = new MeleeAttack(x+10, x+80, y-20, y+20);
       }
       else{
-        MeleeAttack hitbox = new MeleeAttack(x-80, x-10, y+20, y-20);
+        hitbox = new MeleeAttack(x-80, x-10, y-20, y+20);
       }
     }
-    if (weapon.type == 2){
+    /*if (weapon.type == 2){
       
-    }
+    }*/
   }
   
 }

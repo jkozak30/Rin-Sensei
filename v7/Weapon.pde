@@ -11,6 +11,7 @@ class Weapon {
     attack = atk;
     img = i;
     xOff = x;
+    type = 0;
   }
   
   void draw() {
