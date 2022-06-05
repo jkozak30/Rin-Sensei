@@ -18,6 +18,7 @@ class Player {
   //animation stuff
   int currentFrame, delay, offset;
   PImage[] slimeRun;
+  PImage[] swordAttack;
   
   
   public Player(Square[][] grid){
@@ -37,14 +38,15 @@ class Player {
     currentFrame = 0;
     delay=0; 
     offset = 0; 
-    setWeapon(1); //temp, sword
+    setWeapon(0); //temp, sword
   }
   
   void setWeapon(int type) {
     slimeRun = new PImage[10];
     for (int i=0; i<10; i++) {
-      if (type==1) {slimeRun[i] = loadImage("slime/sword-right/sword-run/sword-run" + nf(i)+ ".PNG");}
+      if (type==0) {slimeRun[i] = loadImage("slime/sword-right/sword-run/sword-run" + nf(i)+ ".PNG");}
     }
+    
   }
   
   boolean moveSq(int kp) {
@@ -67,23 +69,6 @@ class Player {
     }
     else {
       //draw the guy
-      if (isAttacking){
-        if (weapon.type == 0){
-          if (attackTimer > 13){
-            isAttacking = false;
-            attackTimer = 0;
-            hitbox = null;
-          }
-        }
-        if (weapon.type == 1){
-          if (attackTimer > 15){
-            isAttacking = false;
-            attackTimer = 0;
-            hitbox = null;
-          }
-        }
-        attackTimer++;
-      }
       status(); 
       weapon.draw();
       stroke(255);
@@ -94,7 +79,26 @@ class Player {
       if (pos.walls[3]) {line(1, height-1, 1, 1);}
       pos.draw( );
       
+      if (isAttacking){
+        if (weapon.type == 0){
+          if (attackTimer > 13){
+            isAttacking = false;
+            attackTimer = 0;
+            //hitbox = null;
+          }
+        }
+        if (weapon.type == 1){
+          if (attackTimer > 15){
+            isAttacking = false;
+            attackTimer = 0;
+            //hitbox = null;
+          }
+        }
+        hitbox.draw();
+        attackTimer++;
+      }      
       
+      else{
       //slime animation--------------
       //noStroke();
       //fill(30, 30, 100);
@@ -105,7 +109,7 @@ class Player {
         image(slimeRun[0+offset], x, y);
       }
       else { //moving
-        if (dx > 0) {offset = 0; } //facing right
+        if (right) {offset = 0; } //facing right
         else {offset = 5;} //facing left
         
         image(slimeRun[currentFrame+offset], x, y);
@@ -115,7 +119,7 @@ class Player {
         } 
       } 
       delay = (delay+1)%8; //change speed of animation
-      
+      }
       t++;
     }
   }
@@ -177,22 +181,22 @@ class Player {
   
   void attack() {
     isAttacking = true;
-    if (weapon.type == 0){
+    //if (weapon.type == 0){
       if (right){
         hitbox = new MeleeAttack(x+10, x+70, y-20, y+20);
       }
       else{
         hitbox = new MeleeAttack(x-70, x-10, y-20, y+20);
       }
-    }
-    if (weapon.type == 1){
+    //}
+    /*if (weapon.type == 1){
       if (right){
         hitbox = new MeleeAttack(x+10, x+80, y-20, y+20);
       }
       else{
         hitbox = new MeleeAttack(x-80, x-10, y-20, y+20);
       }
-    }
+    }*/
     /*if (weapon.type == 2){
       
     }*/
