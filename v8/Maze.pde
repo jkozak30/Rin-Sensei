@@ -47,7 +47,7 @@ class Maze {
       }
     }
     //testing
-    grid[0][0] = new MonsterRoom(0, 0);
+    grid[0][0] = new ShopRoom(0, 0);
     grid[0][1] = new HealingRoom(0, 1);
           
     //grid[0][0].ROOM_ID = 1;

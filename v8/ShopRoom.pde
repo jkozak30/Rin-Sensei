@@ -19,9 +19,9 @@ class ShopRoom extends Square {
   
   void keyPressed() {
     if (key == ' ') {
-      if (axe.selected) {p.weapon = axe;}
-      if (staff.selected) {p.weapon = staff;}
-      if (sword.selected) {p.weapon = sword;}
+      if (axe.selected) {p.weapon = axe; p.weapon.type = 1;}
+      if (staff.selected) {p.weapon = staff; p.weapon.type = 2;}
+      if (sword.selected) {p.weapon = sword; p.weapon.type = 0;}
     }
   }
   

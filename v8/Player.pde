@@ -45,6 +45,8 @@ class Player {
     slimeRun = new PImage[10];
     for (int i=0; i<10; i++) {
       if (type==0) {slimeRun[i] = loadImage("slime/sword-right/sword-run/sword-run" + nf(i)+ ".PNG");}
+      else if (type==1) {slimeRun[i] = loadImage("slime/sword-right/s-run/sword-run" + nf(i)+ ".PNG");}
+      else if (type==2) {slimeRun[i] = loadImage("slime/sword-right/sword-run/sword-run" + nf(i)+ ".PNG");}
     }
     
   }
@@ -106,13 +108,14 @@ class Player {
       }
       */
       if (dx==0 && dy==0) { //not moving 
-        image(slimeRun[0+offset], x, y);
+        image(slimeRun[0+offset], x-41, y-51);
+        //ellipse(x, y, 5, 5);
       }
       else { //moving
         if (right) {offset = 0; } //facing right
         else {offset = 5;} //facing left
         
-        image(slimeRun[currentFrame+offset], x, y);
+        image(slimeRun[currentFrame+offset], x-41, y-51);
         //print(currentFrame+offset);
         if (delay==0) {
           currentFrame = (currentFrame+1)%5;
@@ -125,20 +128,20 @@ class Player {
   }
   
   void update() {
-    if (y < 5) {
-      if (moveSq(0)) { y = height-5; }
+    if (y < 15) {
+      if (moveSq(0)) { y = height-15; }
       else { dy = 0; y++; }
     }
-    if (x > width-5) {
-      if (moveSq(1)) { x = 5; }
+    if (x > width-15) {
+      if (moveSq(1)) { x = 15; }
       else {dx = 0; x--; }
     }
-    if (y > height-5) {
-      if (moveSq(2)) { y = 5; }
+    if (y > height-15) {
+      if (moveSq(2)) { y = 15; }
       else {dy = 0; y--;}
     }
-    if (x < 5) {
-      if (moveSq(3)) { x = width-5; }
+    if (x < 15) {
+      if (moveSq(3)) { x = width-15; }
       else {dx = 0; x++;}
     }
     if (t <= 60) { dash(); }
