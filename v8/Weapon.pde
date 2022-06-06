@@ -15,7 +15,7 @@ class Weapon {
   }
   
   void draw() {
-    image(img, p.x+xOff, p.y-20);
+    /*image(img, p.x+xOff, p.y-20);*/
   }
   
   void drawShop(int x, int y) {

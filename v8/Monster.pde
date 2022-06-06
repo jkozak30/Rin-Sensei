@@ -49,7 +49,7 @@ class Monster {
   
   void takeDamage() {
     if (p.weapon.type == 0){
-      if (p.hitbox != null && !dead && p.hitbox.xFront < x && x < p.hitbox.xBack && p.hitbox.yTop < this.y && this.y < p.hitbox.yBottom) { t1 = 0; this.health -= p.attack;}
+      if (p.hitbox != null && p.hitbox.t < 13 && !dead && p.hitbox.xFront < x && x < p.hitbox.xBack && p.hitbox.yTop < this.y && this.y < p.hitbox.yBottom) { t1 = 0; this.health -= p.attack;}
         t1++;
     }
   }
