@@ -17,9 +17,12 @@ class Player {
   
   //animation stuff
   int currentFrame, delay, offset;
-  PImage[] slimeRun;
-  PImage[] swordAttack;
-  
+  PImage[] slimeRunRight;
+  PImage[] slimeRunLeft;
+  PImage[] slimeAttackRight;
+  PImage[] slimeAttackLeft;
+  PImage[] slimeDashRight;
+  PImage[] slimeDashLeft;
   
   public Player(Square[][] grid){
     health = 100;
@@ -36,18 +39,51 @@ class Player {
     
     //animation
     currentFrame = 0;
-    delay=0; 
-    offset = 0; 
+    delay=0;  
+    slimeRunRight = new PImage[5];
+    slimeRunLeft = new PImage[5];
+    slimeDashRight = new PImage[5];
+    slimeDashLeft = new PImage[5];
     setWeapon(0); //temp, sword
   }
   
   void setWeapon(int type) {
-    slimeRun = new PImage[10];
-    for (int i=0; i<10; i++) {
-      if (type==0) {slimeRun[i] = loadImage("slime/sword-right/sword-run/sword-run" + nf(i)+ ".PNG");}
-      else if (type==1) {slimeRun[i] = loadImage("slime/sword-right/s-run/sword-run" + nf(i)+ ".PNG");}
-      else if (type==2) {slimeRun[i] = loadImage("slime/sword-right/sword-run/sword-run" + nf(i)+ ".PNG");}
-    }
+
+      if (type==0) {
+        slimeAttackRight = new PImage[13];
+        slimeAttackLeft = new PImage[13];
+        for (int i = 0; i < 5; i++){
+          slimeRunRight[i] = loadImage("slime/sword-right/sword-run-right" + (i+1) + ".png");
+          slimeRunLeft[i] = loadImage("slime/sword-left/sword-run-left" + (i+1) + ".png");
+        }
+        for (int i = 0; i < 5; i++){
+          slimeDashRight[i] = loadImage("slime/sword-right/sword-dash-right" + (i+1) + ".png");
+          slimeDashLeft[i] = loadImage("slime/sword-left/sword-dash-left" + (i+1) + ".png");
+        }
+        for (int i = 0; i < 13; i++){
+          slimeAttackRight[i] = loadImage("slime/sword-right/sword-attack-right" + (i+1) + ".png");
+          slimeAttackLeft[i] = loadImage("slime/sword-left/sword-attack-left" + (i+1) + ".png");
+        }
+      }
+      else if (type==1) {
+        for (int i = 0; i < 5; i++){
+          slimeRunRight[i] = loadImage("slime/axe-right/axe-run-right" + (i+1) + ".png");
+          slimeRunLeft[i] = loadImage("slime/axe-left/axe-run-left" + (i+1) + ".png");
+        }
+        for (int i = 0; i < 5; i++){
+          slimeDashRight[i] = loadImage("slime/axe-right/axe-dash-right" + (i+1) + ".png");
+          slimeDashLeft[i] = loadImage("slime/axe-left/axe-dash-left" + (i+1) + ".png");
+        }
+        for (int i = 0; i < 15; i++){
+          slimeAttackRight = new PImage[15];
+          slimeAttackLeft = new PImage[15];
+          slimeAttackRight[i] = loadImage("slime/axe-right/axe-attack-right" + (i+1) + ".png");
+          slimeAttackLeft[i] = loadImage("slime/axe-left/axe-attack-left" + (i+1) + ".png");
+        }
+      }
+      /*else if (type==2) {
+        slimeRun[i] = loadImage("slime/sword-right/sword-run/sword-run" + nf(i)+ ".PNG");
+      }*/
     
   }
   
@@ -83,21 +119,24 @@ class Player {
       
       if (isAttacking){
         if (weapon.type == 0){
-          if (attackTimer > 13){
+          if (attackTimer > 12){
             isAttacking = false;
             attackTimer = 0;
-            //hitbox = null;
+            
           }
         }
         if (weapon.type == 1){
           if (attackTimer > 15){
             isAttacking = false;
             attackTimer = 0;
-            //hitbox = null;
           }
         }
         hitbox.draw();
+        imageMode(CENTER);
+        if (right){image(slimeAttackRight[attackTimer], x+23, y-11);}
+        else {image(slimeAttackLeft[attackTimer], x-23, y-11);}
         attackTimer++;
+        
       }      
       
       else{
@@ -107,21 +146,34 @@ class Player {
       /*if (!right){
       }
       */
-      if (dx==0 && dy==0) { //not moving 
-        image(slimeRun[0+offset], x-41, y-51);
+      if (t < 8){
+        imageMode(CENTER);
+        if (right){image(slimeDashRight[0], x+23, y-11);}
+        else{image(slimeDashLeft[0], x-23, y-11);}
+      }
+      else if (t < 24){
+        imageMode(CENTER);
+        if (right){image(slimeDashRight[(t-8)/4 + 1], x+23, y-11);}
+        else{image(slimeDashLeft[(t-8)/4 + 1], x-23, y-11);}
+      }
+      else{
+      if (dx==0 && dy==0) { //not moving
+      imageMode(CENTER);
+      if (right){image(slimeRunRight[0], x+23, y-11);}
+      else{image(slimeRunLeft[0], x-23, y-11);}
         ellipse(x, y, 5, 5);
       }
+      
       else { //moving
-        if (right) {offset = 0; } //facing right
-        else {offset = 5;} //facing left
-        
-        image(slimeRun[currentFrame+offset], x-41, y-51);
-        //print(currentFrame+offset);
+        imageMode(CENTER);
+        if (right) {image(slimeRunRight[currentFrame], x+23, y-11);} //facing right
+        else {image(slimeRunLeft[currentFrame], x-23, y-11);} //facing left
         if (delay==0) {
           currentFrame = (currentFrame+1)%5;
         } 
       } 
       delay = (delay+1)%8; //change speed of animation
+      }
       }
       t++;
     }
