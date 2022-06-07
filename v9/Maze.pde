@@ -77,7 +77,8 @@ class Maze {
       }
     }
     //testing
-    grid[0][0] = new MonsterRoom(0, 0);
+    grid[0][0] = new ShopRoom(0, 0);
+    
     grid[1][0] = new MazeRoom(1, 0);
     grid[0][1] = new HealingRoom(0, 1);
           

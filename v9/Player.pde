@@ -66,6 +66,8 @@ class Player {
         }
       }
       else if (type==1) {
+        slimeAttackRight = new PImage[15];
+        slimeAttackLeft = new PImage[15];
         for (int i = 0; i < 5; i++){
           slimeRunRight[i] = loadImage("slime/axe-right/axe-run-right" + (i+1) + ".png");
           slimeRunLeft[i] = loadImage("slime/axe-left/axe-run-left" + (i+1) + ".png");
@@ -75,8 +77,6 @@ class Player {
           slimeDashLeft[i] = loadImage("slime/axe-left/axe-dash-left" + (i+1) + ".png");
         }
         for (int i = 0; i < 15; i++){
-          slimeAttackRight = new PImage[15];
-          slimeAttackLeft = new PImage[15];
           slimeAttackRight[i] = loadImage("slime/axe-right/axe-attack-right" + (i+1) + ".png");
           slimeAttackLeft[i] = loadImage("slime/axe-left/axe-attack-left" + (i+1) + ".png");
         }
@@ -107,11 +107,12 @@ class Player {
     }
     else {
       //draw the guy
-      status(); 
+      
       weapon.draw();
       stroke(255);
       strokeWeight(5);
       if (pos.walls[0]) {line(1, 1, width-1, 1);}
+      
       if (pos.walls[1]) {line(width-1, 1, width-1, height-1);}
       if (pos.walls[2]) {line(width-1, height-1, 1, height-1);}
       if (pos.walls[3]) {line(1, height-1, 1, 1);}
@@ -123,18 +124,22 @@ class Player {
             isAttacking = false;
             attackTimer = 0;
             
-          }
+          }          
+          imageMode(CENTER);
+          if (right){image(slimeAttackRight[attackTimer], x+23, y-11);}
+          else {image(slimeAttackLeft[attackTimer], x-23, y-11);}
         }
         if (weapon.type == 1){
-          if (attackTimer > 15){
+          if (attackTimer > 29){
             isAttacking = false;
             attackTimer = 0;
           }
+          imageMode(CENTER);
+          if (right){image(slimeAttackRight[attackTimer/2], x+23, y-11);}
+          else {image(slimeAttackLeft[attackTimer/2], x-23, y-11);}
         }
         hitbox.draw();
-        imageMode(CENTER);
-        if (right){image(slimeAttackRight[attackTimer], x+23, y-11);}
-        else {image(slimeAttackLeft[attackTimer], x-23, y-11);}
+        
         attackTimer++;
         
       }      
@@ -161,7 +166,7 @@ class Player {
       imageMode(CENTER);
       if (right){image(slimeRunRight[0], x+23, y-11);}
       else{image(slimeRunLeft[0], x-23, y-11);}
-        //ellipse(x, y, 5, 5);
+        ellipse(x, y, 5, 5);
       }
       
       else { //moving
@@ -177,6 +182,7 @@ class Player {
       }
       t++;
     }
+    status(); 
   }
   
   void update() {

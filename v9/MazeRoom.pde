@@ -4,6 +4,7 @@ class MazeRoom extends Square {
   public MazeRoom(int r, int c) {
     super(r, c);
     this.hps = null;
+    this.isCompleted = true;
     m1 = new Maze(10, 10, true);
     m1.mazeify();
   }
@@ -24,7 +25,7 @@ class MazeRoom extends Square {
     int left = 0; for (int i = p.y-5; i<=p.y+5; i++) {if (get(p.x+10, i) == c) {left++;}}
     int right = 0; for (int i = p.y-5; i<=p.y+5; i++) {if (get(p.x-10, i) == c) {right++;}}
     if (p.dx > 0 && left > 0) {p.dx = 0; p.x -=3;}
-    if (p.dx < 0 && right > 0) {p.dx = 0; p.x +=3;}
+    if (p.dx < 0 && right > 0) {p.dx = 0; p.x +=3;} 
     if (p.dy > 0 && get(p.x, p.y+10) == c) {p.dy = 0; p.y -=3;}
     if (p.dy < 0 && get(p.x, p.y-10) == c) {p.dy = 0; p.y +=3;}
   }
