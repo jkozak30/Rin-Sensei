@@ -64,6 +64,18 @@ class Maze {
         healNum++;
       }
     }
+    //randomize monster rooms
+    int monsNum = 1; 
+    while (monsNum <= 5) { 
+      int rr = int(random(rows));
+      int cc = int(random(rows));
+      if ( !(rr==0 && cc==0) && !(rr==rows-1 && cc==cols-1) && grid[rr][cc].emptyRoom ) {
+        //print(rr + " " + cc + "   ");
+        grid[rr][cc] = new MonsterRoom(rr, cc);
+        grid[rr][cc].emptyRoom = false; 
+        monsNum++;
+      }
+    }
     //testing
     grid[0][0] = new MonsterRoom(0, 0);
     grid[1][0] = new MazeRoom(1, 0);
