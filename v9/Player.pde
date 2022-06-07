@@ -161,7 +161,7 @@ class Player {
       imageMode(CENTER);
       if (right){image(slimeRunRight[0], x+23, y-11);}
       else{image(slimeRunLeft[0], x-23, y-11);}
-        ellipse(x, y, 5, 5);
+        //ellipse(x, y, 5, 5);
       }
       
       else { //moving
@@ -204,11 +204,12 @@ class Player {
   void status() {
     textSize(12); 
     fill(255); 
-    if (health < 10) { text("HEALTH: " + "000" + health, 272, 18); } 
-    else if (health < 100) { text("HEALTH: " + "00" + health, 272, 18); } 
-    else if (health < 1000) { text("HEALTH: " + "0" + health, 272, 18); 
-    } else { text("HEALTH: " + health, 272, 18); }
+    if (health < 10) { text("HEALTH: " + "00" + health, 157, 20); } 
+    else if (health < 100) { text("HEALTH: " + "0" + health, 157, 20); } 
+    else if (health < 1000) { text("HEALTH: " + health, 157, 20); 
+    } else { text("HEALTH: " + health, 157, 20); }
     
+    //bar
     fill(255, 0, 0);
     noStroke();
     rect(10, 10, health, 10);
@@ -218,11 +219,11 @@ class Player {
     rect(10, 10, 100, 10);
     
     
-    
-    if (attack < 10) { text("ATTACK: " + "000" + attack, 272, 34); } 
-    else if (attack < 100) { text("ATTACK: " + "00" + attack, 272, 34); } 
-    else if (attack < 1000) { text("ATTACK: " + "0" + attack, 272, 34); } 
-    else { text("ATTACK: " + attack, 272, 34); }
+    //attack
+    //if (attack < 10) { text("ATTACK: " + "000" + attack, 272, 34); } 
+    //else if (attack < 100) { text("ATTACK: " + "00" + attack, 272, 34); } 
+    //else if (attack < 1000) { text("ATTACK: " + "0" + attack, 272, 34); } 
+    //else { text("ATTACK: " + attack, 272, 34); }
   }    
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
