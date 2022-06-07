@@ -89,7 +89,21 @@ Julia :: Fixed damage bug in bullet hell room, added HP.
 2022-6-01
 --------------------------------------------------------------
 Julia :: Created monster class, monsters class, and their functionalities(attack,
-movement) 
+movement)
 John :: Created more graphics
 Rin :: Randomized rooms, created a starting screen, adjusted graphics
+=============================================================
+
+2022-6-02
+--------------------------------------------------------------
+Julia ::
+John ::
+Rin :: Added shiny graphics
+=============================================================
+
+2022-6-04
+--------------------------------------------------------------
+Julia ::
+John ::
+Rin :: Implemented running animation into processing
 =============================================================
