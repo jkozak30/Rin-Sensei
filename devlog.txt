@@ -96,7 +96,7 @@ Rin :: Randomized rooms, created a starting screen, adjusted graphics
 
 2022-6-02
 --------------------------------------------------------------
-Julia ::
+Julia :: Improved monster movement.
 John ::
 Rin :: Added shiny graphics
 =============================================================
@@ -106,4 +106,11 @@ Rin :: Added shiny graphics
 Julia ::
 John ::
 Rin :: Implemented running animation into processing
+=============================================================
+
+2022-6-06
+--------------------------------------------------------------
+Julia :: Added maze room, and improved player wall recognition.
+John ::
+Rin :: 
 =============================================================
