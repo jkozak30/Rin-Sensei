@@ -49,12 +49,17 @@
   
   void takeDamage() {
     if (p.weapon.type == 0){
-      if (p.hitbox != null && p.hitbox.t < 13 && !dead && p.hitbox.xFront < x && x < p.hitbox.xBack && p.hitbox.yTop < this.y && this.y < p.hitbox.yBottom) { t1 = 0; this.health -= p.attack;}
+      if (p.hitbox != null && p.hitbox.t < 13 && !dead && p.hitbox.xFront < x && x < p.hitbox.xBack && p.hitbox.yTop < y && y < p.hitbox.yBottom) { t1 = 0; this.health -= p.attack;}
         t1++;
     }
     if (p.weapon.type == 1){
-      if (p.hitbox != null && p.hitbox.t < 29 && !dead && p.hitbox.xFront < x && x < p.hitbox.xBack && p.hitbox.yTop < this.y && this.y < p.hitbox.yBottom) { t1 = 0; this.health -= p.attack;}
+      if (p.hitbox != null && p.hitbox.t < 29 && !dead && p.hitbox.xFront < x && x < p.hitbox.xBack && p.hitbox.yTop < y && y < p.hitbox.yBottom) { t1 = 0; this.health -= p.attack;}
         t1++;
+    }
+    if (p.weapon.type == 2){
+      for (int i = 0; i < 10; i++){
+        if (p.projectiles[i] != null && !dead && p.projectiles[i].x - 10 < x && x < p.projectiles[i].x + 10 && p.projectiles[i].y - 6 < y && y < p.projectiles[i].y + 6) {t1 = 0; this.health -= p.attack/4;}
+      }
     }
   }
   
