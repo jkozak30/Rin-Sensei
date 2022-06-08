@@ -202,7 +202,7 @@ class Player {
       imageMode(CENTER);
       if (right){image(slimeRunRight[0], x+23, y-11);}
       else{image(slimeRunLeft[0], x-23, y-11);}
-        ellipse(x, y, 5, 5);
+        //ellipse(x, y, 5, 5);
       }
       
       else { //moving
@@ -227,17 +227,24 @@ class Player {
       else { dy = 0; y++; }
     }
     if (x > width-15) {
-      if (moveSq(1)) { x = 15; }
+      if (moveSq(1)) { x = 15; if (r == 5 && c == 5){
+      p.x = 100;
+      p.y = 200;
+    }}
       else {dx = 0; x--; }
     }
     if (y > height-15) {
-      if (moveSq(2)) { y = 15; }
+      if (moveSq(2)) { y = 15; if (r == 5 && c == 5){
+      p.x = 100;
+      p.y = 200;
+    }}
       else {dy = 0; y--;}
     }
     if (x < 15) {
       if (moveSq(3)) { x = width-15; }
       else {dx = 0; x++;}
     }
+    
     if (t <= 60) { dash(); }
     x += dx;
     y += dy;
