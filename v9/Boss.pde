@@ -39,8 +39,8 @@ class Boss{
   
   void draw(){
     image(wof, 200, 200);
-    if (t == 120){ //laser
-    rotation =   -1 * atan(-307.0/280) + atan(-1 * (312.0-p.y)/(280-p.x));
+    if (t == 180){ //laser
+    rotation = atan(-307.0/280) - atan(-1 * (312.0-p.y)/(280-p.x));
     laserTimer = 0;
     }
     if (t == 0){ //drop
@@ -49,18 +49,29 @@ class Boss{
     dropTimer = 0;
     }
     if (laserTimer >= 0){
-      if (laserTimer < 10) {
-        
-        pushMatrix();
-        imageMode(CORNER);
-        rotate(rotation);
-        image(laser[0], 280, 312);
-        popMatrix();
+      pushMatrix();
+      imageMode(CORNER);
+      translate(280,312);
+      rotate(rotation+PI);
+      if (laserTimer <= 20) {     
+        image(laser[0], 0, 0);
+      }
+      else if (laserTimer/3 == 7) {
+        image(laser[2], 0, 0);
+      }
+      else if (laserTimer < 39) {
+        image(laser[3], 0, 0);
+      }
+      else{
+        image( laser[(laserTimer - 30)/2] , 0, 0);
       }
       
+      
+      
+      popMatrix();
       laserTimer++;
       
-      if (laserTimer > 30) {
+      if (laserTimer > 45) {
         laserTimer = -1;
       }
       
@@ -75,7 +86,7 @@ class Boss{
       }
     }
     
-    t= (t+1) % 240;
+    t= (t+1) % 360;
     
   }
   
