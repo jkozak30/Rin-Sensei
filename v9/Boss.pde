@@ -101,16 +101,29 @@ class Boss{
       }
     }
     
+    takeDamage();
+    if (health <= 0){
+      dead = true;
+    }
     t= (t+1) % 360;
     t1++;
-  }
-  
-  void laser(){
-    rotate(atan(-307.0/280) - atan(-1 * (312.0-p.y)/(280-p.x)) );
     
   }
   
-  void drop(){
-    
+  void takeDamage(){
+    if (p.weapon.type == 0){
+      if (p.hitbox != null && p.hitbox.t < 13 && !dead && x < p.hitbox.xBack) { t1 = 0; this.health -= p.attack/20;}
+        t1++;
+    }
+    if (p.weapon.type == 1){
+      if (p.hitbox != null && p.hitbox.t < 29 && !dead && x < p.hitbox.xBack) { t1 = 0; this.health -= p.attack/29;}
+        t1++;
+    }
+    if (p.weapon.type == 2){
+      for (int i = 0; i < 10; i++){
+        if (p.projectiles[i] != null && !dead && x < p.projectiles[i].x + 10 && (p.projectiles[i].x - 10) < 400) {t1 = 0; this.health -= p.attack/100;}
+        t1++;
+      }
+    }
   }
 }

@@ -77,10 +77,8 @@ class Maze {
       }
     }
     //testing
-    grid[0][0] = new EndRoom(0, 0);
-    
-    grid[1][0] = new MazeRoom(1, 0);
-    grid[0][1] = new HealingRoom(0, 1);
+    grid[5][5] = new EndRoom(5, 5);
+    grid[0][0] = new ShopRoom(0, 0);
           
     //grid[0][0].ROOM_ID = 1;
     current = grid[0][0]; //it dont matter which one
