@@ -10,7 +10,7 @@ class EndRoom extends Square{
   void draw() {
   //text("END", 200, 200); 
   waffler.draw();
-  
+  if (p.x > 280) { p.dx = 0; p.x --;}
   }
   //fight boss?
 }
