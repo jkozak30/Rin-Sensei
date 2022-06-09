@@ -66,7 +66,7 @@ class Maze {
     }
     //randomize monster rooms
     int monsNum = 1; 
-    while (monsNum <= 5) { 
+    while (monsNum <= 8) { 
       int rr = int(random(rows));
       int cc = int(random(rows));
       if ( !(rr==0 && cc==0) && !(rr==rows-1 && cc==cols-1) && grid[rr][cc].emptyRoom ) {
@@ -75,9 +75,9 @@ class Maze {
         grid[rr][cc].emptyRoom = false; 
         monsNum++;
       }
-    }
-    //testing
-    grid[5][5] = new EndRoom(5, 5);
+    }   
+    
+    grid[rows-1][rows-1] = new EndRoom(rows-1, cols-1);
     grid[0][0] = new ShopRoom(0, 0);
           
     //grid[0][0].ROOM_ID = 1;

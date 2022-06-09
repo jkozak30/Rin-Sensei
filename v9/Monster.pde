@@ -11,12 +11,13 @@
   
   public Monster(){}
   
-  public Monster(int x, int y) {
+  public Monster(int x, int y, int gcolor) {
     this.x = x; 
     this.y = y;
     this.attack = 2;
     this.health = 5;
-    img = loadImage("weapon.png");
+    
+    img = loadImage("ghost/ghost" + nf(gcolor) + ".png");
   }
   
   void draw() {
