@@ -37,13 +37,13 @@ wow! oo!...
 the color of a certain pixel.
 - There are a lot of different ways to measure the distance
 between two objects on the canvas (we used 1. difference of
-their coords, 2. compare pixel colors around one object, 
+their coords, 2. compare pixel colors around one object,
 3. distance from point to line)
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
-- 
+-
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -133,29 +133,28 @@ Rin :: Implemented running animation into processing
 2022-6-06
 --------------------------------------------------------------
 Julia :: Added maze room, and improved player wall recognition.
-John ::
-Rin :: 
+John :: Implemented current attacking animations and structure for melee attacks
+Rin ::
 =============================================================
 
 2022-6-07
 --------------------------------------------------------------
 Julia :: Fixed maze room bugs.
-John ::
-Rin :: 
+John :: Implemented mage attacking animation, implemented wof attack animations
+Rin ::
 =============================================================
 
 2022-6-08
 --------------------------------------------------------------
-Julia :: Restricted movement in boss room and added damage 
+Julia :: Restricted movement in boss room and added damage
 functions/distance calculations in EndRoom.
-John ::
-Rin :: 
+John :: Implemented mage attacking structure
+Rin ::
 =============================================================
 
-2022-6-08
+2022-6-09
 --------------------------------------------------------------
 Julia :: Devlog questions.
-John ::
-Rin :: 
+John :: let bigg waffles take damage, made end screen
+Rin ::
 =============================================================
-
