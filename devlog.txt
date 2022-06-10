@@ -13,23 +13,37 @@ Dungeon Crawler
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
+- We struggled with organizing the properties of each type
+of room, and having the parent class Square was really helpful
+in knowing the basics for a room (such as its walls, whether its
+task is completed, etc.)
+- Some Processing concepts were still foreign (ex. rotating/
+positioning images) and it was definitely an extra step to have to
+put everything onto a canvas, but we got more familiar with it as
+we went.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
+- A projectile occasionally hits you but doesn't damage you.
+- Key presses sometimes aren't picked up. I hope that isn't
+our fault.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
+- 
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
+- 
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
+- 
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -81,14 +95,15 @@ finished UML
 
 2022-5-31
 --------------------------------------------------------------
-Julia :: Fixed damage bug in bullet hell room, added HP.
+Julia :: Fixed damage bug in bullet hell room, added HP. (maybe this day)
+added weapon sprites
 
 
 =============================================================
 
 2022-6-01
 --------------------------------------------------------------
-Julia :: Created monster class, monsters class, and their functionalities(attack,
+Julia :: Created monster class, subclasses, and their functionalities(attack,
 movement)
 John :: Created more graphics
 Rin :: Randomized rooms, created a starting screen, adjusted graphics
@@ -114,3 +129,26 @@ Julia :: Added maze room, and improved player wall recognition.
 John ::
 Rin :: 
 =============================================================
+
+2022-6-07
+--------------------------------------------------------------
+Julia :: Fixed maze room bugs.
+John ::
+Rin :: 
+=============================================================
+
+2022-6-08
+--------------------------------------------------------------
+Julia :: Restricted movement in boss room and added damage 
+functions/distance calculations in EndRoom.
+John ::
+Rin :: 
+=============================================================
+
+2022-6-08
+--------------------------------------------------------------
+Julia :: Devlog questions.
+John ::
+Rin :: 
+=============================================================
+
