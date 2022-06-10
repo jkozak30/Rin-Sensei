@@ -2,6 +2,7 @@ class ShopRoom extends Square {
   
   Weapon sword, staff, axe; 
   boolean purchasing;
+  PImage display = loadImage("howto.png");
   
   public ShopRoom(int r, int c) {
     super(r, c);
@@ -15,6 +16,8 @@ class ShopRoom extends Square {
     staff.drawShop(185, 130);
     sword.drawShop(215, 130);
     this.keyPressed();
+    image(display, 200, 200);
+    
   }
   
   void keyPressed() {

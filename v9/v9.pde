@@ -1,6 +1,7 @@
 Maze m;
 Player p;
 PImage bg; 
+PImage title; 
 Weapon w;
 boolean start;
 
@@ -15,20 +16,22 @@ void setup() {
   p.weapon = w;
   //System.out.println(m.mazeString());
   bg = loadImage("background.png");
+  title = loadImage("title.png");
   start = false; 
 }
 
 void draw() {
   if (!start) {
-    background(bg);
-    fill(255);
-    text("WELCOME TO (title)", 200, 180);
-    text("Use WASD or arrow keys to move", 200, 220);
-    text("Press space to dash", 200, 250);
-    text("Press u to attack", 200, 280);
-    text("PRESS ENTER TO START", 200, 330);
+    background(title);
+    //background(bg);
+    //fill(255);
+    //text("WELCOME TO (title)", 200, 180);
+    //text("Use WASD or arrow keys to move", 200, 220);
+    //text("Press space to dash", 200, 250);
+    //text("Press u to attack", 200, 280);
+    //text("PRESS ENTER TO START", 200, 330);
     
-    textAlign(CENTER);
+    //textAlign(CENTER);
     
   }
   else {
@@ -37,6 +40,7 @@ void draw() {
     p.update();
     p.draw();
     m.draw();
+    
   }
 }
 
