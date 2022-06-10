@@ -33,7 +33,12 @@ our fault.
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
-- 
+- Processing has a pixels array from which you can get
+the color of a certain pixel.
+- There are a lot of different ways to measure the distance
+between two objects on the canvas (we used 1. difference of
+their coords, 2. compare pixel colors around one object, 
+3. distance from point to line)
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,7 +48,9 @@ we changed ___ to ___ bc...
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
-- 
+- Get basic functionality down first!
+- For multi-part projects, organize/plan out each part (and
+refer to plans/UMLs/flowcharts)
 ||||||||||||||||||||||||||||||||||||||||||
 
 
