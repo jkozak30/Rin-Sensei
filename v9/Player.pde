@@ -251,22 +251,24 @@ class Player {
   }
   
   void status() {
-    textSize(12); 
-    fill(255); 
-    if (health < 10) { text("HEALTH: " + "00" + health, 157, 20); } 
-    else if (health < 100) { text("HEALTH: " + "0" + health, 157, 20); } 
-    else if (health < 1000) { text("HEALTH: " + health, 157, 20); 
-    } else { text("HEALTH: " + health, 157, 20); }
-    
-    //bar
-    fill(255, 0, 0);
-    noStroke();
-    rect(10, 10, health, 10);
-    noFill();
-    stroke(255);
-    strokeWeight(1);
-    rect(10, 10, 100, 10);
-    
+    if (health > 0) {
+      textSize(12); 
+      fill(255); 
+      if (health < 10) { text("HEALTH: " + "00" + health, 157, 20); } 
+      else if (health < 100) { text("HEALTH: " + "0" + health, 157, 20); } 
+      else if (health < 1000) { text("HEALTH: " + health, 157, 20); 
+      } else { text("HEALTH: " + health, 157, 20); }
+      
+      //bar
+      
+      fill(255, 0, 0);
+      noStroke();
+      rect(10, 10, health, 10);
+      noFill();
+      stroke(255);
+      strokeWeight(1);
+      rect(10, 10, 100, 10);
+    }
     
     //attack
     //if (attack < 10) { text("ATTACK: " + "000" + attack, 272, 34); } 
