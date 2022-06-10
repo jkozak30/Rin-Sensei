@@ -1,2 +1,0 @@
-class Ghost extends Monster {
-}

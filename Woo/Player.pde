@@ -14,6 +14,7 @@ class Player {
   boolean isAttacking;
   MeleeAttack hitbox;
   RangedAttack[] projectiles;
+  int projectileCtr;
   
   //animation stuff
   int currentFrame, delay, offset;
@@ -23,6 +24,8 @@ class Player {
   PImage[] slimeAttackLeft;
   PImage[] slimeDashRight;
   PImage[] slimeDashLeft;
+  PImage projectileRight;
+  PImage projectileLeft;
   
   public Player(Square[][] grid){
     health = 100;
@@ -36,6 +39,8 @@ class Player {
     t = 60;
     right = true;
     hitbox = null;
+    projectiles = new RangedAttack[10];
+    projectileCtr = 0;
     
     //animation
     currentFrame = 0;
@@ -44,6 +49,8 @@ class Player {
     slimeRunLeft = new PImage[5];
     slimeDashRight = new PImage[5];
     slimeDashLeft = new PImage[5];
+    projectileRight = loadImage("slime/staff-right/projectile.png");
+    projectileLeft = loadImage("slime/staff-left/projectile.png");
     setWeapon(0); //temp, sword
   }
   
@@ -66,6 +73,8 @@ class Player {
         }
       }
       else if (type==1) {
+        slimeAttackRight = new PImage[15];
+        slimeAttackLeft = new PImage[15];
         for (int i = 0; i < 5; i++){
           slimeRunRight[i] = loadImage("slime/axe-right/axe-run-right" + (i+1) + ".png");
           slimeRunLeft[i] = loadImage("slime/axe-left/axe-run-left" + (i+1) + ".png");
@@ -75,15 +84,26 @@ class Player {
           slimeDashLeft[i] = loadImage("slime/axe-left/axe-dash-left" + (i+1) + ".png");
         }
         for (int i = 0; i < 15; i++){
-          slimeAttackRight = new PImage[15];
-          slimeAttackLeft = new PImage[15];
           slimeAttackRight[i] = loadImage("slime/axe-right/axe-attack-right" + (i+1) + ".png");
           slimeAttackLeft[i] = loadImage("slime/axe-left/axe-attack-left" + (i+1) + ".png");
         }
       }
-      /*else if (type==2) {
-        slimeRun[i] = loadImage("slime/sword-right/sword-run/sword-run" + nf(i)+ ".PNG");
-      }*/
+      else if (type==2) {
+        slimeAttackRight = new PImage[9];
+        slimeAttackLeft = new PImage[9];
+        for (int i = 0; i < 5; i++){
+          slimeRunRight[i] = loadImage("slime/staff-right/staff-run-right" + (i+1) + ".png");
+          slimeRunLeft[i] = loadImage("slime/staff-left/staff-run-left" + (i+1) + ".png");
+        }
+        for (int i = 0; i < 5; i++){
+          slimeDashRight[i] = loadImage("slime/staff-right/staff-dash-right" + (i+1) + ".png");
+          slimeDashLeft[i] = loadImage("slime/staff-left/staff-dash-left" + (i+1) + ".png");
+        }
+        for (int i = 0; i < 9; i++){
+          slimeAttackRight[i] = loadImage("slime/staff-right/staff-attack-right" + (i+1) + ".png");
+          slimeAttackLeft[i] = loadImage("slime/staff-left/staff-attack-left" + (i+1) + ".png");
+        }
+      }
     
   }
   
@@ -99,6 +119,9 @@ class Player {
   
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   void draw() {
+    for (int i = 0; i < 10; i++){
+      if(projectiles[i] != null) {projectiles[i].draw(); projectiles[i].update();}
+    }
     if (health <=0) {
       background(0); 
       fill(255); 
@@ -107,11 +130,12 @@ class Player {
     }
     else {
       //draw the guy
-      status(); 
+      
       weapon.draw();
       stroke(255);
       strokeWeight(5);
       if (pos.walls[0]) {line(1, 1, width-1, 1);}
+      
       if (pos.walls[1]) {line(width-1, 1, width-1, height-1);}
       if (pos.walls[2]) {line(width-1, height-1, 1, height-1);}
       if (pos.walls[3]) {line(1, height-1, 1, 1);}
@@ -123,18 +147,35 @@ class Player {
             isAttacking = false;
             attackTimer = 0;
             
-          }
+          }          
+          imageMode(CENTER);
+          if (right){image(slimeAttackRight[attackTimer], x+23, y-11);}
+          else {image(slimeAttackLeft[attackTimer], x-23, y-11);}
         }
         if (weapon.type == 1){
-          if (attackTimer > 15){
+          if (attackTimer > 29){
             isAttacking = false;
             attackTimer = 0;
           }
+          imageMode(CENTER);
+          if (right){image(slimeAttackRight[attackTimer/2], x+23, y-11);}
+          else {image(slimeAttackLeft[attackTimer/2], x-23, y-11);}
+        }
+        if (weapon.type == 2){
+          if (attackTimer > 8){
+            isAttacking = false;
+            attackTimer = 0;
+          }
+          imageMode(CENTER);
+          if (right){image(slimeAttackRight[attackTimer], x+23, y-11);}
+          else {image(slimeAttackLeft[attackTimer], x-23, y-11);}
+          if (attackTimer == 4){
+            projectiles[projectileCtr] = new RangedAttack(x,y, right);
+            projectileCtr = (projectileCtr + 1) % 10;
+          }
         }
         hitbox.draw();
-        imageMode(CENTER);
-        if (right){image(slimeAttackRight[attackTimer], x+23, y-11);}
-        else {image(slimeAttackLeft[attackTimer], x-23, y-11);}
+        
         attackTimer++;
         
       }      
@@ -177,6 +218,7 @@ class Player {
       }
       t++;
     }
+    status(); 
   }
   
   void update() {
@@ -185,39 +227,48 @@ class Player {
       else { dy = 0; y++; }
     }
     if (x > width-15) {
-      if (moveSq(1)) { x = 15; }
+      if (moveSq(1)) { x = 15; if (r == 5 && c == 5){
+      p.x = 100;
+      p.y = 200;
+    }}
       else {dx = 0; x--; }
     }
     if (y > height-15) {
-      if (moveSq(2)) { y = 15; }
+      if (moveSq(2)) { y = 15; if (r == 5 && c == 5){
+      p.x = 100;
+      p.y = 200;
+    }}
       else {dy = 0; y--;}
     }
     if (x < 15) {
       if (moveSq(3)) { x = width-15; }
       else {dx = 0; x++;}
     }
+    
     if (t <= 60) { dash(); }
     x += dx;
     y += dy;
   }
   
   void status() {
-    textSize(12); 
-    fill(255); 
-    if (health < 10) { text("HEALTH: " + "00" + health, 157, 20); } 
-    else if (health < 100) { text("HEALTH: " + "0" + health, 157, 20); } 
-    else if (health < 1000) { text("HEALTH: " + health, 157, 20); 
-    } else { text("HEALTH: " + health, 157, 20); }
-    
-    //bar
-    fill(255, 0, 0);
-    noStroke();
-    rect(10, 10, health, 10);
-    noFill();
-    stroke(255);
-    strokeWeight(1);
-    rect(10, 10, 100, 10);
-    
+    if (health > 0) {
+      textSize(12); 
+      fill(255); 
+      if (health < 10) { text("HEALTH: " + "00" + health, 157, 20); } 
+      else if (health < 100) { text("HEALTH: " + "0" + health, 157, 20); } 
+      else if (health < 1000) { text("HEALTH: " + health, 157, 20); 
+      } else { text("HEALTH: " + health, 157, 20); }
+      
+      //bar
+      
+      fill(255, 0, 0);
+      noStroke();
+      rect(10, 10, health, 10);
+      noFill();
+      stroke(255);
+      strokeWeight(1);
+      rect(10, 10, 100, 10);
+    }
     
     //attack
     //if (attack < 10) { text("ATTACK: " + "000" + attack, 272, 34); } 

@@ -42,7 +42,7 @@ class Maze {
     
     //randomize bullet hell rooms
     int bhNum = 1; 
-    while (bhNum <= 5) { 
+    while (bhNum <= 6) { 
       int rr = int(random(rows));
       int cc = int(random(rows));
       if ( !(rr==0 && cc==0) && !(rr==rows-1 && cc==cols-1) && grid[rr][cc].emptyRoom ) {
@@ -54,7 +54,7 @@ class Maze {
     }
     //randomize healing rooms
     int healNum = 1; 
-    while (healNum <= 5) { 
+    while (healNum <= 6) { 
       int rr = int(random(rows));
       int cc = int(random(rows));
       if ( !(rr==0 && cc==0) && !(rr==rows-1 && cc==cols-1) && grid[rr][cc].emptyRoom ) {
@@ -66,7 +66,7 @@ class Maze {
     }
     //randomize monster rooms
     int monsNum = 1; 
-    while (monsNum <= 5) { 
+    while (monsNum <= 8) { 
       int rr = int(random(rows));
       int cc = int(random(rows));
       if ( !(rr==0 && cc==0) && !(rr==rows-1 && cc==cols-1) && grid[rr][cc].emptyRoom ) {
@@ -75,11 +75,22 @@ class Maze {
         grid[rr][cc].emptyRoom = false; 
         monsNum++;
       }
-    }
-    //testing
-    grid[0][0] = new MonsterRoom(0, 0);
-    grid[1][0] = new MazeRoom(1, 0);
-    grid[0][1] = new HealingRoom(0, 1);
+    } 
+    //randomize maze rooms
+    int mazeNum = 1; 
+    while (mazeNum <= 6) { 
+      int rr = int(random(rows));
+      int cc = int(random(rows));
+      if ( !(rr==0 && cc==0) && !(rr==rows-1 && cc==cols-1) && grid[rr][cc].emptyRoom ) {
+        //print(rr + " " + cc + "   ");
+        grid[rr][cc] = new MazeRoom(rr, cc);
+        grid[rr][cc].emptyRoom = false; 
+        mazeNum++;
+      }
+    } 
+    //set red and green room
+    grid[rows-1][rows-1] = new EndRoom(rows-1, cols-1);
+    grid[0][0] = new ShopRoom(0, 0);
           
     //grid[0][0].ROOM_ID = 1;
     current = grid[0][0]; //it dont matter which one
