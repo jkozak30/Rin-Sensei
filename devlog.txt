@@ -43,7 +43,9 @@ their coords, 2. compare pixel colors around one object,
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
--
+-we changed Rooms into subclasses of Square for organization
+-we decreased monster types for simplicity
+-we changed weapon graphics to be part of player
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,7 +136,7 @@ Rin :: Implemented running animation into processing
 --------------------------------------------------------------
 Julia :: Added maze room, and improved player wall recognition.
 John :: Implemented current attacking animations and structure for melee attacks
-Rin ::
+Rin :: Made minor adjustments to graphics
 =============================================================
 
 2022-6-07
@@ -154,7 +156,8 @@ Rin ::
 
 2022-6-09
 --------------------------------------------------------------
-Julia :: Devlog questions.
+Julia :: Devlog questions. Updated UML.
 John :: let bigg waffles take damage, made end screen
-Rin ::
+Rin :: Implemented ghost graphics, title screen, control instructions. updated
+flowchart.
 =============================================================
