@@ -4,6 +4,7 @@ PImage bg;
 PImage title; 
 Weapon w;
 boolean start;
+int t;
 
 void setup() {
   size(400, 400);
@@ -40,7 +41,9 @@ void draw() {
     p.update();
     p.draw();
     m.draw();
-    
+    t++;
+    fill(255);
+    text("TIME: " + t/60, 280, 20);
   }
 }
 
